@@ -4,9 +4,15 @@
   "private": true,
   "scripts": {
     "pre": "cnpm install || yarn --registry https://registry.npm.taobao.org || npm install --registry https://registry.npm.taobao.org ",
+<<<<<<< HEAD
     "build:test": "vue-cli-service build --mode test",
     "serve": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
     "build": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
+=======
+    "serve": "vue-cli-service serve",
+    "build:test": "vue-cli-service build --mode test",
+    "build": "vue-cli-service build",
+>>>>>>> a16c28149a68bd29ae7060cc822797593ecfbf9e
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -117,4 +123,8 @@
     "last 2 versions",
     "not ie <= 10"
   ]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a16c28149a68bd29ae7060cc822797593ecfbf9e

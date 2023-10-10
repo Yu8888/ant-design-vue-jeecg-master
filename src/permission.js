@@ -4,6 +4,7 @@ import store from './store'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 import notification from 'ant-design-vue/es/notification'
+<<<<<<< HEAD
 import { ACCESS_TOKEN, INDEX_MAIN_PAGE_PATH, OAUTH2_LOGIN_PAGE_PATH } from '@/store/mutation-types'
 import { generateIndexRouter, isOAuth2AppEnv } from '@/utils/util'
 
@@ -14,17 +15,37 @@ NProgress.configure({ showSpinner: false }) // NProgress Configuration
 const whiteList = ['/user/login', '/user/register', '/user/register-result', '/user/alteration'] // no redirect whitelist
 whiteList.push(OAUTH2_LOGIN_PAGE_PATH)
 
+=======
+import { ACCESS_TOKEN,INDEX_MAIN_PAGE_PATH, OAUTH2_LOGIN_PAGE_PATH } from '@/store/mutation-types'
+import { generateIndexRouter, isOAuth2AppEnv } from '@/utils/util'
+
+NProgress.configure({ showSpinner: false }) // NProgress Configuration
+
+const whiteList = ['/user/login', '/user/register', '/user/register-result','/user/alteration'] // no redirect whitelist
+whiteList.push(OAUTH2_LOGIN_PAGE_PATH)
+
+
+>>>>>>> a16c28149a68bd29ae7060cc822797593ecfbf9e
 router.beforeEach((to, from, next) => {
   //update-begin---author:scott ---date:2022-10-13  for：[jeecg-boot/issues/4091]多级路由缓存问题 #4091-----------
   //解决三级菜单无法缓存问题
   //参考： https://blog.csdn.net/qq_37322135/article/details/126013301
   //参考： https://blog.csdn.net/cwin8951/article/details/106644118
+<<<<<<< HEAD
   if (to.matched && to.matched.length > 3) {
     to.matched.splice(2, to.matched.length - 3)
   }
   //update-end---author:scott ---date::2022-10-13  for：[jeecg-boot/issues/4091]多级路由缓存问题 #4091--------------
 
 
+=======
+  if (to.matched && to.matched.length>3) {
+    to.matched.splice(2, to.matched.length - 3)
+  }
+  //update-end---author:scott ---date::2022-10-13  for：[jeecg-boot/issues/4091]多级路由缓存问题 #4091--------------
+  
+  
+>>>>>>> a16c28149a68bd29ae7060cc822797593ecfbf9e
   NProgress.start() // start progress bar
 
   if (Vue.ls.get(ACCESS_TOKEN)) {
@@ -35,6 +56,7 @@ router.beforeEach((to, from, next) => {
     } else {
       if (store.getters.permissionList.length === 0) {
         store.dispatch('GetPermissionList').then(res => {
+<<<<<<< HEAD
           const menuData = res.result.menu;
           //console.log(res.message)
           if (menuData === null || menuData === "" || menuData === undefined) {
@@ -62,6 +84,35 @@ router.beforeEach((to, from, next) => {
                message: '系统提示',
                description: '请求用户信息失败，请重试！'
              })*/
+=======
+              const menuData = res.result.menu;
+              //console.log(res.message)
+              if (menuData === null || menuData === "" || menuData === undefined) {
+                return;
+              }
+              let constRoutes = [];
+              constRoutes = generateIndexRouter(menuData);
+              // 添加主界面路由
+              store.dispatch('UpdateAppRouter',  { constRoutes }).then(() => {
+                // 根据roles权限生成可访问的路由表
+                // 动态添加可访问路由表
+                router.addRoutes(store.getters.addRouters)
+                const redirect = decodeURIComponent(from.query.redirect || to.path)
+                if (to.path === redirect) {
+                  // hack方法 确保addRoutes已完成 ,set the replace: true so the navigation will not leave a history record
+                  next({ ...to, replace: true })
+                } else {
+                  // 跳转到目的路由
+                  next({ path: redirect })
+                }
+              })
+            })
+          .catch(() => {
+           /* notification.error({
+              message: '系统提示',
+              description: '请求用户信息失败，请重试！'
+            })*/
+>>>>>>> a16c28149a68bd29ae7060cc822797593ecfbf9e
             store.dispatch('Logout').then(() => {
               next({ path: '/user/login', query: { redirect: to.fullPath } })
             })
@@ -74,7 +125,11 @@ router.beforeEach((to, from, next) => {
     if (whiteList.indexOf(to.path) !== -1) {
       // 在免登录白名单，如果进入的页面是login页面并且当前是OAuth2app环境，就进入OAuth2登录页面
       if (to.path === '/user/login' && isOAuth2AppEnv()) {
+<<<<<<< HEAD
         next({ path: OAUTH2_LOGIN_PAGE_PATH })
+=======
+        next({path: OAUTH2_LOGIN_PAGE_PATH})
+>>>>>>> a16c28149a68bd29ae7060cc822797593ecfbf9e
       } else {
         // 在免登录白名单，直接进入
         next()

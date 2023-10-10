@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 <!-- 这里会加载 主路由和后台菜单 -->
 <!-- 页面的菜单，头部，底部的整体布局 -->
 <!-- 三个位置是以组件的形式引入整体布局页面 SideMenu, GlobalHeader, GlobalFooter -->
+=======
+>>>>>>> a16c28149a68bd29ae7060cc822797593ecfbf9e
 <template>
   <a-layout class="layout" :class="[device]">
 

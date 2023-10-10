@@ -4,12 +4,21 @@
       <div class="top">
         <div class="header">
           <a href="/">
+<<<<<<< HEAD
             <img src="~@/assets/logo.svg" class="logo" alt="logo">
             <span class="title">Jeecg Boot</span>
           </a>
         </div>
         <div class="desc">
           Jeecg Boot 是中国最具影响力的 企业级 低代码平台
+=======
+            <img src="~@/assets/logo1.png" class="logo" alt="logo">
+            <span class="title">TCL中环-衣柜管理系统</span>
+          </a>
+        </div>
+        <div class="desc">
+          环境友好 员工爱戴 社会尊重 客户信赖
+>>>>>>> a16c28149a68bd29ae7060cc822797593ecfbf9e
         </div>
       </div>
 
@@ -21,9 +30,15 @@
           <a href="https://github.com/zhangdaiscott/jeecg-boot" target="_blank">隐私</a>
           <a href="https://github.com/zhangdaiscott/jeecg-boot/blob/master/LICENSE" target="_blank">条款</a>
         </div>
+<<<<<<< HEAD
         <div class="copyright">
           Copyright &copy; 2019 <a href="http://www.jeecg.com" target="_blank">JEECG开源社区</a> 出品
         </div>
+=======
+        <!-- <div class="copyright">
+          Copyright &copy; 2019 <a href="http://www.jeecg.com" target="_blank">JEECG开源社区</a> 出品
+        </div> -->
+>>>>>>> a16c28149a68bd29ae7060cc822797593ecfbf9e
       </div>
     </div>
   </div>

@@ -183,7 +183,11 @@
        * @param title 要修改的新标题
        */
       changeTitle(title) {
+<<<<<<< HEAD
         let projectTitle = "Jeecg-Boot 企业级低代码平台111"
+=======
+        let projectTitle = "TCL中环-衣柜管理系统"
+>>>>>>> a16c28149a68bd29ae7060cc822797593ecfbf9e
         // 首页特殊处理
         if (this.$route.path === indexKey) {
           document.title = projectTitle

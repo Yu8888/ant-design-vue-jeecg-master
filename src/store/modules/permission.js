@@ -1,5 +1,9 @@
 import { asyncRouterMap, constantRouterMap } from "@/config/router.config"
+<<<<<<< HEAD
 // 解释：动态添加主界面路由，需要缓存
+=======
+
+>>>>>>> a16c28149a68bd29ae7060cc822797593ecfbf9e
 /**
  * 过滤账户是否拥有某一个权限，并将菜单从加载列表移除
  *
